@@ -8,6 +8,6 @@ class Dive < ApplicationRecord
   validates :latitude, presence: true
   validates :dive_buddy, presence: true
 
-  has_many :sites
-  has_many :divers, through: :sites 
+  belongs_to :site
+  has_many :divers, through: :excurion
 end

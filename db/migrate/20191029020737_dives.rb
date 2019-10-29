@@ -9,6 +9,7 @@ class Dives < ActiveRecord::Migration[5.2]
        t.string :longitude, null: false
        t.string :latitude, null: false
        t.string :dive_buddy, null: false
+       t.belongs_to :site
 
        t.timestamps null: false
    end

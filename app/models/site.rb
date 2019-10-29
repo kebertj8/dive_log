@@ -5,6 +5,5 @@ class Site < ApplicationRecord
   validates :longitude, presence: true
   validates :latitude, presence: true
 
-  belongs_to :diver
-  belongs_to :dive 
+  has_many :dives
 end
