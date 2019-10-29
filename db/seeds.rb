@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Dive.create(style: "scuba", number: "3", depth: "10M", visibility: "12ft", tempurature: "25C", longitude: "1239484", latitude: "23143431", dive_buddy: "matt")
+Diver.create(name: "Kebert", address: "Somerville", gender: "male", diving_since: "2015")
+Site.create(name: "Lanes Cove", address: "Cape Ann", region: "Gloucester", longitude: "000345", latitude: "874329", diver_id: "1", dive_id: "1")
