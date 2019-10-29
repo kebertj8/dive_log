@@ -5,6 +5,6 @@ feature "visitor sees Dives" do
 
     visit sites_path
 
-    expect(page).to have_content("divelog")
+    expect(page).to have_content("DiveLog")
   end
 end
