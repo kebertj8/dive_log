@@ -1,9 +1,10 @@
 <div>
  <center>
   <h1>"We dive not to escape life but for life not to escape us"</h1>
-   <h3>Dive Plan Link</h3>
-   <% @sites.each do |site| %>
+   <a href="/dives">Plan a Dive</a>
+   <br>
+      <% @sites.each do |site| %>
       <%= link_to "#{site.name}", sites_path(site) %>
-   <% end %>
+      <% end %>
  </center>
 </div>
