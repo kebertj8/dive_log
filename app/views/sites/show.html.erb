@@ -1,3 +1,22 @@
+<div>
+  <center>
 <% @sites.each do |site| %>
-<%= link_to "#{site.name}", sites_path(site) %>
+<br>
+
+<img src=<%= site.image %> width="700" height="500">
+<br>
+<%= site.name %>
+<br>
+<%= site.address %>
+<br>
+<%= site.region %>
+<br>
+<%= site.longitude %>
+<br>
+<%= site.latitude %>
+<br>
+<%= site.description %>
+
 <% end %>
+ </center>
+</div>

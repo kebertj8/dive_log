@@ -1,8 +1,49 @@
 .top-bar{
   background-color: black;
 }
+.site-container {
+  background: image-url("dive1.jpeg");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 100px;
+  padding-right: 100px;
+  .page-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.39);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    h1 {
+      font-family: "Bowlby One SC";
+      color: rgb(0, 119, 255);
+      opacity: 0.7;
+      margin: 0;
+      padding-bottom: 50px;
+
+    }
+    .inner-content {
+      padding: 20px;
+      flex: 1;
+      text-align: left;
+      .left-content {
+        background: #fff;
+        width: 30%;
+        height: 100%;
+      }
+      .right-content {
+        width: 70%;
+      }
+    }
+  }
+}
 html {
-  background: url("dive1.jpeg") no-repeat center center fixed;
+  position: relative;
+  height: auto;
+  width: 100%;
   background-size: cover;
   overflow: hidden;
 }

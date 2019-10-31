@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'sites#index'
   get '/sites', to: 'sites#show'
   get '/dives', to: 'dives#index'
+  get '/sites/:id', to: 'sites#show'
 
   devise_for :users
 
