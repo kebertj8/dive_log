@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "visitor sees Dives" do
   scenario "dive is on the page" do
 
-    visit sites_path
+    visit "/sites"
 
     expect(page).to have_content("Dive")
   end

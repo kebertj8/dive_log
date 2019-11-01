@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import SiteTile from "./SiteTile"
 import DiveTile from "./DiveTile"
+import SimpleMap from "./SImpleMap"
 
 const SiteIndexContainer = props => {
   return (
@@ -15,6 +16,7 @@ const SiteIndexContainer = props => {
             <div className='right-content'>
               <SiteTile/>
       <h3>Google Maps API</h3>
+          {/* <SimpleMap/> */}
       </div>
     </div>
   </div>
