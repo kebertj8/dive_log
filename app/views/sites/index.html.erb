@@ -1,10 +1,17 @@
-<div>
- <center>
-  <h1>"We dive not to escape life but for life not to escape us"</h1>
-   <a href="/dives">Plan a Dive</a>
-   <br>
-      <% @sites.each do |site| %>
-      <%= link_to "#{site.name}", sites_path(site) %>
-      <% end %>
- </center>
+<div class='site-container'>
+  <div class='page-content'>
+    <h1>"We dive not to escape life but for life not to escape us"</h1>
+    <div class='inner-content'>
+      <div class='left-content'>
+        <a href="/dives">Dive Details</a>
+        <br>
+        <% @sites.each do |site| %>
+        <%= link_to "#{site.name}", sites_path(site) %>
+        <% end %>
+      </div>
+      <div className='right-content'>
+      </div>
+    </div>
+  </div>
 </div>
+

@@ -47,12 +47,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_200219) do
     t.string "latitude", null: false
     t.string "description", null: false
     t.string "image"
-    t.bigint "diver_id", null: false
-    t.bigint "dive_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dive_id"], name: "index_sites_on_dive_id"
-    t.index ["diver_id"], name: "index_sites_on_diver_id"
   end
 
   create_table "users", force: :cascade do |t|
