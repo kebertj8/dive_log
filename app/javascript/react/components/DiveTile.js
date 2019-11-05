@@ -12,7 +12,7 @@ const DiveTile = () => {
   buttons:
     [<Modali.Button
       label="Cancel"
-      isStyleCancel 
+      isStyleCancel
       onClick={() => diveModal()}
     />,]
 });
@@ -24,5 +24,5 @@ const DiveTile = () => {
       <Modali.Modal {...newModal}/>
       </div>
   );
-}; 
+};
 export default DiveTile
