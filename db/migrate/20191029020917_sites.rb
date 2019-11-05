@@ -8,8 +8,6 @@ class Sites < ActiveRecord::Migration[5.2]
       t.string :latitude, null: false
       t.string :description, null: false
       t.string :image
-      t.belongs_to :diver, null: false
-      t.belongs_to :dive, null: false
 
       t.timestamps
     end
