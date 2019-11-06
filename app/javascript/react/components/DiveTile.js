@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useEffect, useState } from 'react-router-dom'
 import Modali, { useModali } from 'modali'
 import DiveLog from './DiveLog'
 import DiveSite from './DiveSite'
@@ -14,7 +14,8 @@ const DiveTile = () => {
       label="Cancel"
       isStyleCancel
       onClick={() => diveModal()}
-    />,]
+    />
+  ],
 });
   return (
     <div className="button" onClick={diveModal}>
