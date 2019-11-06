@@ -18,12 +18,16 @@ const DiveTile = () => {
   ],
 });
   return (
+    <>
     <div className="button" onClick={diveModal}>
       <button>
         Dive Log
       </button>
+      </div>
+      <div>
       <Modali.Modal {...newModal}/>
       </div>
+      </>
   );
 };
 export default DiveTile
