@@ -1,6 +1,71 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const DiveLog = props => {
+
+  const [shouldRedirect, setShouldRedirect] =useState(false)
+  const [errors, setErrors] = useState({})
+  const [newLog, setNewLog] = useState({
+    style: "",
+    number: "",
+    depth: "",
+    visibility: "",
+    longitude: "",
+    latitude: "",
+    dive_buddy: "",
+    site: "",
+    userId: props.userId 
+  })
+  
+    const validForSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["style", "number", "depth", "visibility", "longitude", "latitude", "dive_buddy", "site"]
+    requiredFields.forEach(field => {
+      if (newLog[field].trim() === "") {
+        submitErrors = {
+          ...setErrors,
+          [field]: "can't be blank"
+        }
+      }
+    })
+
+    setErrors(submitErrors)
+    return_.isEmpty(submitErrors)
+  }
+
+    const postNewLog = (name) => {
+    event.preventDefault()
+    if (validForSubmission()) {
+      fetch("api/v1/users", {
+        credentials: "same-origin",
+        method: "POST",
+        body: JSON.stringify(newLog),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          return response
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage)
+          throw error
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        if (body.id) {
+          setShouldRedirect(true)
+        } else {
+          setErrors(body)
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    }
+  }
+
+
   return (
     <form>
       <label>
