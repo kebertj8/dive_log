@@ -18,9 +18,6 @@ class Api::V1::UsersController < ApplicationController
     else
       render json: new_log.errors
     end 
-    def new
-      
-    end
   end
 
   private 
