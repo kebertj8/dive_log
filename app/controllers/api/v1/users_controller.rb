@@ -1,12 +1,12 @@
-class Api::V1::DiversController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
   
   def index
-    divers= Diver.all
+    render json: User.all
   end
 
   def show
-    render json: Diver.where(diverId: params["diver_Id"])
+    render json: User.where(userId: params["user_Id"])
   end
 
   def create
@@ -18,6 +18,9 @@ class Api::V1::DiversController < ApplicationController
     else
       render json: new_log.errors
     end 
+    def new
+      
+    end
   end
 
   private 

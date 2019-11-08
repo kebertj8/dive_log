@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import DiveLog from './DiveLog'
+import { userInfo } from 'os'
 
 const DiverContainer = props => {
+  let diverId = props.match.params.id 
   const [diver, setDiver] =useState({
     name: "",
     address: "",
@@ -8,29 +11,34 @@ const DiverContainer = props => {
     diving_since: ""
   })
   
-  let diverId = props.match.params.id 
+  useEffect(() => {
+    fetch(`/api/v1/users/${diverId}`)
+    .then(response => {
+      return response.json()
 
-  useEffect(() => {fetch(`/api/v1/divers/${diverId}`, {
-    credentials: 'same-origin',
     })
-    .then((response) => {
-      if (response.ok) {
-        return response
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage)
-        throw(error)
-      }
+
+    .then(response => {
+      setDiver({
+        name: response.name,
+        address: response.address,
+        gender: response.gender,
+        diving_since: response.diving_since
+      })
     })
-    .then(response => response.json())
-    .then(body => {
-      setUser(body)
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
-  
+  }, [])  
+
   return(
-    <h1>Testing</h1>
-  )
+    <div>
+      <h1>Diver Of the Day!</h1>
+      <ul>
+        <li>{diver.name}</li>
+        <li>{diver.address}</li>
+        <li>{diver.gender}</li>
+        <li>{diver.diving_since}</li>
+      </ul>
+    </div>
+
+    )
   }
-export default DiverContainer  
+export default DiverContainer

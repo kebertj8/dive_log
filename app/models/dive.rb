@@ -9,5 +9,5 @@ class Dive < ApplicationRecord
   validates :dive_buddy, presence: true
 
   belongs_to :site
-  has_many :divers, through: :excurion
+  has_many :users, through: :excurion
 end
