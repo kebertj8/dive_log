@@ -65,10 +65,18 @@ const DiveLog = props => {
     }
   }
 
-  
+  // handleSubmit(event) => {
+  //   alert('A name was submitted: ' + this.state.value);
+  //   event.preventDefault();
+  // }
+
+  // const handleSubmit = () => {
+  //   event.preventDefault()
+  //   props.submitNewQuestion(newQuestion)
+  // }
 
   return (
-    <form>
+    <form onSubmit={this.handleSubmit}>
       <label>
         Style:
         <input type="text" name="style"/>

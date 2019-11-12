@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DiveLog from './DiveLog'
-import { userInfo } from 'os'
+import DiverTile from './DiverTile'
 
 const DiverContainer = props => {
   let diverId = props.match.params.id 
@@ -28,14 +28,23 @@ const DiverContainer = props => {
     })
   }, [])  
 
+const diverInfo = diver.map(dive => {
+    return (
+      <DiverTile
+        key={dive.id}
+        name={dive.name}
+        address={dive.address}
+        gender={dive.gender}
+        diving_since={dive.diving_since}
+      />
+    )
+  })
+
   return(
     <div>
       <h1>Diver Of the Day!</h1>
       <ul>
-        <li>{diver.name}</li>
-        <li>{diver.address}</li>
-        <li>{diver.gender}</li>
-        <li>{diver.diving_since}</li>
+        {diverInfo}
       </ul>
     </div>
 

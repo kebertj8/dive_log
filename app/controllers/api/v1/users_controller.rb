@@ -6,7 +6,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    render json: User.where(userId: params["user_Id"])
+    @user = User.where(user: current_user)
+    render :show
   end
 
   def create
@@ -14,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     log = Log.find(params[:userId])
     new_log.user = user
     if new_log.save
-      render json: new_log
+      render json: User.where(user: current_user) && new_log
     else
       render json: new_log.errors
     end 

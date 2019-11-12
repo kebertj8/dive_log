@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'users', to: 'homes#index'
   get '/users', to: 'homes#index'
   get '/users/:id', to: 'homes#index' 
-
- 
+  
+  
   
   namespace :api do
     namespace :v1 do 
