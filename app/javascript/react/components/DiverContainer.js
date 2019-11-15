@@ -28,24 +28,25 @@ const DiverContainer = props => {
     })
   }, [])  
 
-const diverInfo = diver.map(dive => {
-    return (
-      <DiverTile
-        key={dive.id}
-        name={dive.name}
-        address={dive.address}
-        gender={dive.gender}
-        diving_since={dive.diving_since}
-      />
-    )
-  })
+// const diverInfo = diver.map(dive => {
+//     return (
+//       <DiverTile
+//         key={dive.id}
+//         name={dive.name}
+//         address={dive.address}
+//         gender={dive.gender}
+//         diving_since={dive.diving_since}
+//       />
+//     )
+//   })
+
+      // <ul>
+      //   {diverInfo}
+      // </ul>
 
   return(
     <div>
       <h1>Diver Of the Day!</h1>
-      <ul>
-        {diverInfo}
-      </ul>
     </div>
 
     )
