@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 
 const DiveLog = props => {
 
-  const [shouldRedirect, setShouldRedirect] =useState(false)
+  const [shouldRedirect, setShouldRedirect] =useState(null)
   const [errors, setErrors] = useState({})
   const [newLog, setNewLog] = useState({
     style: "",
@@ -12,8 +13,7 @@ const DiveLog = props => {
     longitude: "",
     latitude: "",
     dive_buddy: "",
-    site: "",
-    userId: props.userId 
+    site: ""
   })
   
     const validForSubmission = () => {
@@ -32,13 +32,13 @@ const DiveLog = props => {
     return_.isEmpty(submitErrors)
   }
 
-    const postNewLog = (name) => {
+    const postNewLog = (newLog) => {
     event.preventDefault()
     if (validForSubmission()) {
       fetch("api/v1/users", {
         credentials: "same-origin",
         method: "POST",
-        body: JSON.stringify(newLog),
+        body: JSON.stringify(setNewLog),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
@@ -56,7 +56,7 @@ const DiveLog = props => {
       .then(response => response.json())
       .then(body => {
         if (body.id) {
-          setShouldRedirect(true)
+          setShouldRedirect(body.id)
         } else {
           setErrors(body)
         }
@@ -65,61 +65,36 @@ const DiveLog = props => {
     }
   }
 
-  // handleSubmit(event) => {
-  //   alert('A name was submitted: ' + this.state.value);
-  //   event.preventDefault();
-  // }
+  if (shouldRedirect) {
+    return <Redirect to= '/divers/${shouldRedirect}'/>
+  } 
 
-  // const handleSubmit = () => {
-  //   event.preventDefault()
-  //   props.submitNewQuestion(newQuestion)
-  // }
+  const handleChange = event => {
+    setNewLog({
+      ...newLog,
+      [event.currentTarget.name]: event.currentTarget.value
+    })
+  }
+
+  const handleSubmit = () => {
+    event.preventDefault()
+    postNewLog(newLog)
+  }
 
   return (
-    <form onSubmit={this.handleSubmit}>
+  <div>
+    <form onSubmit={handleSubmit}>
       <label>
         Style:
-        <input type="text" name="style"/>
-      </label>
-
-      <label>
-        Number:
-        <input type="text" name="number"/>
-      </label>
-
-      <label>
-        Depth:
-        <input type="text" name="depth"/>
-      </label>
-
-      <label>
-        Visibility:
-        <input type="text" name="visibility"/>
-      </label>
-
-      <label>
-        Longitude:
-        <input type="text" name="longitude"/>
-      </label>
-
-      <label>
-        Latitude:
-        <input type="text" name="latitude"/>
-      </label>
-
-      <label>
-        DiveBuddy:
-        <input type="text" name="DiveBuddy"/>
-      </label>
-
-      <label>
-        Site:
-        <input type="text" name="site"/>
+        <input type="text" name="style"
+          onChange={handleChange}
+          value={newLog.name}/>
       </label>
 
       <input type="submit" value="Submit"/>
       <br></br>
     </form>
+  </div>
   )
 }
 

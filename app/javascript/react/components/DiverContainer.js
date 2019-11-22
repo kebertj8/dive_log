@@ -3,8 +3,8 @@ import DiveLog from './DiveLog'
 import DiverTile from './DiverTile'
 
 const DiverContainer = props => {
-  let diverId = props.match.params.id 
-  const [diver, setDiver] =useState({
+  let userId = props.match.params.id 
+  const [user, setUser] =useState({
     name: "",
     address: "",
     gender: "",
@@ -12,7 +12,7 @@ const DiverContainer = props => {
   })
   
   useEffect(() => {
-    fetch(`/api/v1/users/${diverId}`)
+    fetch(`/api/v1/users/${userId}`)
     .then(response => {
       return response.json()
 
@@ -28,7 +28,7 @@ const DiverContainer = props => {
     })
   }, [])  
 
-// const diverInfo = diver.map(dive => {
+// const diverInfo = users.map(dive => {
 //     return (
 //       <DiverTile
 //         key={dive.id}
@@ -40,13 +40,13 @@ const DiverContainer = props => {
 //     )
 //   })
 
-      // <ul>
-      //   {diverInfo}
-      // </ul>
-
+//       <ul>
+//         {diverInfo}
+//       </ul>
+  
   return(
     <div>
-      <h1>Diver Of the Day!</h1>
+      <h1>Diver of the Day!</h1>
     </div>
 
     )

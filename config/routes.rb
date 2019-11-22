@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get '/sites', to:'homes#index'
   get 'users', to: 'homes#index'
   get '/users', to: 'homes#index'
-  get '/users/:id', to: 'homes#index' 
-  
+  get '/users/:id', to: 'homes#index'
+  get '/divers', to: 'homes#index'
   
   
   namespace :api do
