@@ -66,7 +66,7 @@ const DiveLog = props => {
   }
 
   if (shouldRedirect) {
-    return <Redirect to= '/divers/${shouldRedirect}'/>
+    return <Redirect to="/divers"/>
   } 
 
   const handleChange = event => {
@@ -83,7 +83,7 @@ const DiveLog = props => {
 
   return (
   <div>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit>
       <label>
         Style:
         <input type="text" name="style"

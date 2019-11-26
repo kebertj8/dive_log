@@ -7,7 +7,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    @user = User.where(user: current_user)
+    user = User.where(user: current_user)
+    render json: user
   end
 
   def create
