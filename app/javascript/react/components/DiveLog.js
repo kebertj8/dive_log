@@ -69,25 +69,34 @@ const DiveLog = props => {
     return <Redirect to="/divers"/>
   } 
 
-  const handleChange = event => {
-    setNewLog({
-      ...newLog,
-      [event.currentTarget.name]: event.currentTarget.value
-    })
+
+  // const handleSubmit = () => {
+  //   event.preventDefault()
+  //   postNewLog(newLog)
+  // }
+
+  const formSubmit = (event) => {
+    event.preventDefault
+    let divePayLoad = newLog
+    props.postNewLog(divePayLoad)
   }
 
-  const handleSubmit = () => {
-    event.preventDefault()
-    postNewLog(newLog)
-  }
-
+    const addNewLog = (event) => {
+      event.preventDefault()
+      setNewLog({
+        ...newLog,
+        [event.currentTarget.id]: event.currentTarget.value
+      })
+    }
+    // {/* onSubmit={handleChange} */}
+    
   return (
   <div>
-    <form onSubmit>
+    <form onSubmit={formSubmit}>
       <label>
         Style:
         <input type="text" name="style"
-          onChange={handleChange}
+          onChange={addNewLog}
           value={newLog.name}/>
       </label>
 

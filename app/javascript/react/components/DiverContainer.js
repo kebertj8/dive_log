@@ -24,7 +24,6 @@ const DiverContainer = props => {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       setDiver({
         name: body.name,
         address: body.address,
@@ -35,27 +34,33 @@ const DiverContainer = props => {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])  
 
-// const diverInfo = users.map(dive => {
+// let diverInfo = users.map(user => {
 //     return (
 //       <DiverTile
-//         key={dive.id}
-//         name={dive.name}
-//         address={dive.address}
-//         gender={dive.gender}
-//         diving_since={dive.diving_since}
+//         key={user.id}
+//         id={user.id}
+//         name={user.name}
+//         address={user.address}
+//         gender={user.gender}
+//         diving_since={user.diving_since}
 //       />
 //     )
 //   })
+//   {diverInfo}
 
-//       <ul>
-//         {diverInfo}
-//       </ul>
-  
-  return(
-    <div>
+
+return(
+  <div>
       <h1>Diver of the Day!</h1>
+        <DiverTile
+        key={user.id}
+        id={user.id}
+        name={user.name}
+        address={user.address}
+        gender={user.gender}
+        diving_since={user.diving_since}
+      />
     </div>
-
     )
   }
 export default DiverContainer
