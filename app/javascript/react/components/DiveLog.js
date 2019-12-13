@@ -88,7 +88,6 @@ const DiveLog = props => {
         [event.currentTarget.id]: event.currentTarget.value
       })
     }
-    // {/* onSubmit={handleChange} */}
     
   return (
   <div>
