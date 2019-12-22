@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  # root 'sessions#index'
-  root 'homes#index'
-    
+  # root 'sessions#index'    
   devise_for :users
-  get '/sites', to:'homes#index'
-  get '/users', to: 'homes#index'
-  get '/users', to: 'homes#index'
-  get '/users/:id', to: 'homes#index'
-  get '/divers', to: 'homes#index'
+  root 'static_pages#index'
+
+  get '/sites', to:'static_pages#index'
+  get '/users', to: 'static_pages#index'
+  get '/users', to: 'static_pages#index'
+  get '/users/:id', to: 'static_pages#index'
+  get '/new_log', to: 'dives#new_log'
   
   resources :sessions, only: [:new]
-
+  
   namespace :api do
     namespace :v1 do 
       resources :sites, only: [:index, :show, :create, :new]

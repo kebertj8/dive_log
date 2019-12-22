@@ -46,3 +46,5 @@
           onChange={handleChange}
           value={newLog.name}/>
       </label>
+
+<Route exact path="/" component={SiteIndexContainer}/>

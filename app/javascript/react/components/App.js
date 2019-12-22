@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom"
 import DiverContainer from './DiverContainer'
 import SiteTile from './SiteTile'
 import SiteIndexContainer from './SiteIndexContainer'
+import Home from '../containers/Home'
 
 export const App = (props) => {
   return (
