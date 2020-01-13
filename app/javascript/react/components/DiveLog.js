@@ -69,12 +69,6 @@ const DiveLog = props => {
     return <Redirect to="/divers"/>
   } 
 
-
-  // const handleSubmit = () => {
-  //   event.preventDefault()
-  //   postNewLog(newLog)
-  // }
-
   const formSubmit = (event) => {
     event.preventDefault
     let divePayLoad = newLog
