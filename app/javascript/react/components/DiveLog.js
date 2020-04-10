@@ -87,60 +87,44 @@ const DiveLog = props => {
   <div>
     <form onSubmit={formSubmit}>
       
-      <label>
+      <label htmlFor="style">
         Style:
-        <input type="text" name="style"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="style" name="style" placeholder="style"/>
       </label>
 
       <label>
         Number:
-        <input type="text" name="number"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="number" name="number" placeholder="Number"/>
       </label>
 
-            <label>
+      <label>
         Depth:
-        <input type="text" name="depth"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="depth" name="depth" placeholder="Depth"/>
       </label>
 
       <label>
         Visibility:
-        <input type="text" name="visibility"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="visibility" name="visibility" placeholder="Visibility"/>
       </label>
 
       <label>
         Longitude:
-        <input type="text" name="longitude"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="longitude" name="longitude" placeholder="Longitude"/>
       </label>
 
       <label>
         Latitude:
-        <input type="text" name="latitude"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="latitude" name="latitude" placeholder="Latitude"/>
       </label>
 
       <label>
         DiveBuddy:
-        <input type="text" name="DiveBuddy"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="diveBuddy" name="DiveBuddy" placeholder="DiveBuddy"/>
       </label>
 
       <label>
         Site:
-        <input type="text" name="site"
-          onChange={addNewLog}
-          value={newLog.name}/>
+        <input type="text" id="site" name="site" placeholder="Site"/>
       </label>
 
       <input type="submit" value="Submit"/>
